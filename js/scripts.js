@@ -1184,38 +1184,91 @@ function lazyLoadImages() {
 
       "all": function () {
         // GSAP All 
+        // if (document.querySelector('.transition-sec')) {
+        //   const vhshutter = window.innerHeight;
+        //   const triggerOffsetShutterOne = 100 * vhshutter / 100;
+        //   const triggerOffsetShutterTwo = 50 * vhshutter / 100;
+        
+        //   document.querySelectorAll('.transition-sec').forEach((section) => {
+        //     var shutter = gsap.timeline({
+        //       scrollTrigger: {
+        //         trigger: section,
+        //         start: `bottom bottom+=${triggerOffsetShutterOne}px`,
+        //         end: "bottom bottom",
+        //         scrub: true,
+        //       }
+        //     });
+        
+        //     shutter.to(section.querySelectorAll(".shutter"), {
+        //       scaleX: 1,
+        //       stagger: 0.05,
+        //     });
+        
+        //     gsap.to(section, {
+        //       autoAlpha: 0,
+        //       pointerEvents: "none",
+        //       scrollTrigger: {
+        //         trigger: section,
+        //         start: `bottom bottom+=${triggerOffsetShutterTwo / 1.5}px`,
+        //         end: "bottom bottom",
+        //         scrub: true,
+        //       }
+        //     });
+        //   });
+        // }
+
         if (document.querySelector('.transition-sec')) {
           const vhshutter = window.innerHeight;
           const triggerOffsetShutterOne = 100 * vhshutter / 100;
           const triggerOffsetShutterTwo = 50 * vhshutter / 100;
         
           document.querySelectorAll('.transition-sec').forEach((section) => {
-            var shutter = gsap.timeline({
-              scrollTrigger: {
-                trigger: section,
-                start: `bottom bottom+=${triggerOffsetShutterOne}px`,
-                end: "bottom bottom",
-                scrub: true,
-              }
-            });
-        
-            shutter.to(section.querySelectorAll(".shutter"), {
-              scaleX: 1,
-              stagger: 0.05,
-            });
-        
             gsap.to(section, {
-              autoAlpha: 0,
+              autoAlpha: 0, // Fade out the section
               pointerEvents: "none",
               scrollTrigger: {
                 trigger: section,
-                start: `bottom bottom+=${triggerOffsetShutterTwo / 1.5}px`,
-                end: "bottom bottom",
+                start: `bottom bottom+=${triggerOffsetShutterOne}px`,
+                end: "bottom bottom+=10%",
                 scrub: true,
               }
             });
           });
         }
+
+        // if (document.querySelector('.transition-sec')) {
+        //   const vhshutter = window.innerHeight;
+        //   const triggerOffsetShutterOne = 100 * vhshutter / 100;
+        //   const triggerOffsetShutterTwo = 50 * vhshutter / 100;
+        
+        //   document.querySelectorAll('.transition-sec').forEach((section) => {
+        //     var shutter = gsap.timeline({
+        //       scrollTrigger: {
+        //         trigger: section,
+        //         start: `bottom bottom+=${triggerOffsetShutterOne}px`,
+        //         end: "bottom bottom",
+        //         scrub: true,
+        //       }
+        //     });
+        
+        //     shutter.to(section.querySelectorAll(".shutter"), {
+        //       scaleX: 1,
+        //       stagger: 0.5,
+        //     });
+        
+        //     gsap.to(section, {
+        //       autoAlpha: 0,
+        //       pointerEvents: "none",
+        //       scrollTrigger: {
+        //         trigger: section,
+        //         start: `bottom bottom+=${triggerOffsetShutterTwo / 1.5}px`,
+        //         end: "bottom bottom",
+        //         scrub: true,
+        //       }
+        //     });
+        //   });
+        // }
+        
         
         // Additional Conditional Timelines
         if (document.querySelector('.sec-1-inner')) {
